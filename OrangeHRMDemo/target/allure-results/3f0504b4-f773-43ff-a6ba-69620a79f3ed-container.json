@@ -1,0 +1,1 @@
+{"uuid":"3f0504b4-f773-43ff-a6ba-69620a79f3ed","name":"test.swaglabs_LoginTest.after","children":["7427a05e-6e44-4ea3-ace9-92b4127803a9"],"description":"","befores":[],"afters":[{"name":"after","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1700443271697,"stop":1700443277950}],"start":1700443271697,"stop":1700443277950}
