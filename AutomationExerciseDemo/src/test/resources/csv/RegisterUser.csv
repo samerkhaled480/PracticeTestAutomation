@@ -1,0 +1,2 @@
+﻿TcID,summary,name,email,password,title,days,months,years,firstname,lastname,address,country,state,city,zipcode,mobile_number,expectedResults,linkedTcID
+T-001,register new user,AhmedAli,AhmedAli@test.com,Dummy123,Mr,15,12,1997,Ahmed,Ali,15st.,India,mombai,mombai,115511,3458622001,ACCOUNT CREATED!,
