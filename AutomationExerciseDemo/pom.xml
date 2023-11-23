@@ -149,7 +149,7 @@
 
 					<!-- Optional configuration parameters -->
 					<suiteXmlFiles>
-						<!-- <suiteXmlFile>src\test\resources\executionLists\.xml</suiteXmlFile> -->
+						<suiteXmlFile>src\test\resources\executionLists\signup.xml</suiteXmlFile>
 					</suiteXmlFiles>
 
 					<properties>

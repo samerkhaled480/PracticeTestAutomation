@@ -3,6 +3,7 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import io.qameta.allure.Step;
 import utils.PageFunctionUtils;
 
 public class LoginPage {
@@ -28,15 +29,17 @@ public class LoginPage {
 	
 	//page functions 
 	
+	@Step("Fill login data")
 	public LoginPage Login(String Email , String password) throws Exception
 	{
 		PageFunctionUtils.waitOnElement(driver, LoginButton);
 		PageFunctionUtils.enterDataInWebElement(driver, LoginEmailFiled, Email);
 		PageFunctionUtils.enterDataInWebElement(driver, LoginPasswordField, password);
+		
 		return this;
 	}
 	
-	
+	@Step("Fill signup data")
 	public LoginPage Signup(String name , String Email ) throws Exception
 	{
 		PageFunctionUtils.waitOnElement(driver, SignupButton);
@@ -46,7 +49,21 @@ public class LoginPage {
 		return this;
 	}
 	
+	@Step("press login button")
+	public LoginPage PressLoginButton() throws InterruptedException
+	{
+		PageFunctionUtils.waitOnElement(driver, LoginButton);
+		PageFunctionUtils.clickOnElement(driver, LoginButton);
+		return this;
+	}
 	
+	@Step("press signup button")
+	public LoginPage PressSignupButton() throws InterruptedException
+	{
+		PageFunctionUtils.waitOnElement(driver, SignupButton);
+		PageFunctionUtils.clickOnElement(driver, SignupButton);
+		return this;
+	}
 	
 	
 	

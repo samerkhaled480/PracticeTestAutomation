@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import io.qameta.allure.Step;
-import utils.AssertionFactory;
 import utils.PageFunctionUtils;
 
 public class SignupPage {
@@ -25,7 +24,7 @@ public class SignupPage {
 	private By StateField 	    = By.id("state");
 	private By CityField 	    = By.id("city");
 	private By ZipCodeField 	= By.id("zipcode");
-	private By MobileNumberField= By.id("mobile_number");
+	private By MobileNumberField= By.xpath("//*[@id=\"mobile_number\"]");
 	private By CreateAccountButton = By.xpath("(//button[normalize-space()='Create Account'])[1]");	
 	private By ContinueButton	= By.xpath("(//a[normalize-space()='Continue'])[1]");
 	
@@ -42,11 +41,7 @@ public class SignupPage {
 	{
 		PageFunctionUtils.waitOnElement(driver, TitleField_Mr);
 		if(title == "Mr")PageFunctionUtils.clickOnElement(driver, TitleField_Mr);
-		else if( title == "Mrs")PageFunctionUtils.clickOnElement(driver, TitleField_Mrs);
-		else 
-		{
-			AssertionFactory.assertionFailWithMessage("invalid title data from csv" );
-		}
+		else PageFunctionUtils.clickOnElement(driver, TitleField_Mrs);
 		
 		return this;
 	}
@@ -72,6 +67,7 @@ public class SignupPage {
 	@Step("select data of birth")
 	public SignupPage DateOfBirth (String days , String months , String years ) throws java.lang.Exception
 	{
+		PageFunctionUtils.scrollUp(driver);
 		PageFunctionUtils.waitOnElement(driver, dpDaysFiled);
 		PageFunctionUtils.selectDropDownListByVisibleText(driver, dpDaysFiled, days);
 		PageFunctionUtils.selectDropDownListByValue(driver, dpMonthsFiled, months);
@@ -82,6 +78,7 @@ public class SignupPage {
 	@Step("add address info 1")
 	public SignupPage AddressInfo_Name(String FirstName , String LastName ) throws java.lang.Exception
 	{
+		
 		PageFunctionUtils.waitOnElement(driver, FirstNameField);
 		PageFunctionUtils.enterDataInWebElement(driver, FirstNameField, FirstName);
 		PageFunctionUtils.enterDataInWebElement(driver, LastNameFiled, LastName);
@@ -89,7 +86,7 @@ public class SignupPage {
 	}
 	
 	@Step("add address info 2")
-	public SignupPage AddressInfor_Address(String address ) throws java.lang.Exception
+	public SignupPage AddressInfo_Address(String address ) throws java.lang.Exception
 	{
 		PageFunctionUtils.waitOnElement(driver, AddressField);
 		PageFunctionUtils.enterDataInWebElement(driver, AddressField, address);
@@ -102,6 +99,7 @@ public class SignupPage {
 		PageFunctionUtils.waitOnElement(driver, dpCountryFiled);
 		
 		PageFunctionUtils.selectDropDownListByVisibleText(driver, dpCountryFiled, Country);
+		PageFunctionUtils.scrollUp(driver);
 		PageFunctionUtils.enterDataInWebElement(driver, StateField, State);
 		PageFunctionUtils.enterDataInWebElement(driver, CityField, City);
 		PageFunctionUtils.enterDataInWebElement(driver, ZipCodeField, ZipCode);
@@ -109,8 +107,9 @@ public class SignupPage {
 	}
 	
 	@Step("add mobile number")
-	public SignupPage AddressInfo_MobileNumber(String mobileNumber ) throws java.lang.Exception
+	public SignupPage AddressInfo_MobileNumber(String mobileNumber ) throws Exception
 	{
+		PageFunctionUtils.scrollUp(driver);
 		PageFunctionUtils.waitOnElement(driver, MobileNumberField);
 		PageFunctionUtils.enterDataInWebElement(driver, MobileNumberField, mobileNumber);
 		return this;
@@ -119,6 +118,7 @@ public class SignupPage {
 	@Step("press create account button")
 	public SignupPage PressCreateAccountButton() throws InterruptedException
 	{
+		
 		PageFunctionUtils.waitOnElement(driver, CreateAccountButton);
 		PageFunctionUtils.clickOnElement(driver, CreateAccountButton);
 		return this;

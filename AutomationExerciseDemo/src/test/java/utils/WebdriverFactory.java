@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+
 	public class WebdriverFactory {
 		public static WebDriver initiateWebDriver() throws MalformedURLException, URISyntaxException 
 		{
@@ -16,13 +17,15 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 			cap.setBrowserName("chrome");
 			cap.setPlatform(Platform.WINDOWS);
 			ChromeOptions options = new ChromeOptions();
-			
+			//options.addExtensions(new File(path.CHROMEADBLOCKER));
+
 			WebDriver driver = new ChromeDriver(options);
+			driver.manage().window().maximize();
 			
 		/*	options.merge(cap);
 			options.addArguments("--proxy-server='direct://'");
 			options.addArguments("--proxy-bypass-list=*");
- 	        driver.manage().window().maximize();
+ 	        
 			options.addArguments("--dissable-gpu");*/
 			return driver;
 		}
