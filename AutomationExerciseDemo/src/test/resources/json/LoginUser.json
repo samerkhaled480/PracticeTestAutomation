@@ -1,0 +1,10 @@
+[
+ {
+  "TcId": "T002",
+  "summary": "register new user",
+  "name": "AhmedAli",
+  "email": "esddrsddttg@test.com",
+  "password": "Dummy123",
+  "expectedResults": "AhmedAli"
+ }
+]

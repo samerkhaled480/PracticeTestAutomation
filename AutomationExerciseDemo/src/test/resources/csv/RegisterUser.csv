@@ -1,2 +1,2 @@
-﻿TcId,summary,name,email,password,title,days,months,years,firstname,lastname,address,country,state,city,zipcode,mobilenumber,expectedResults,linkedTcID
-T-001,register new user,AhmedAli,sugar@test.com,Dummy123,Mr,15,12,1997,Ahmed,Ali,15st.,India,mombai,mombai,115511,115511,ACCOUNT CREATED!,
+﻿TcId,summary,name,email,password,title,days,months,years,firstname,lastname,address,country,state,city,zipcode,mobilenumber,expectedresults,linkedTcId
+T001,register new user,AhmedAli,esddrsddttg@test.com,Dummy123,Mr,15,12,1997,Ahmed,Ali,15st.,India,mombai,mombai,115511,115511,ACCOUNT CREATED!,T002

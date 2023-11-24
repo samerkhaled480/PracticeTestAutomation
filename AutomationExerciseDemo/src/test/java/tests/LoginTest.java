@@ -23,22 +23,20 @@ import utils.WebdriverFactory;
 
 import config.properties;
 import config.path;
-import data.SignupData;
-import procedures.SignupProcedure;
+import data.LoginData;
+import procedures.LoginProcedure;
 
 
 @Listeners({AllureTestNg.class})
-@Test(groups = "SignUp")
-public class SignupTest {
+@Test(groups = "Login")
+public class LoginTest {
 	
 	
 	WebDriver driver = null;
 	
 	@BeforeMethod( description= "initialize the browser")
 	public void before( Object[] testData ) throws Exception
-	{	
-		SignupData data = (SignupData) testData[0];
-		
+	{			
 		driver = WebdriverFactory.initiateWebDriver();
 		driver.get(properties.WEBSITEURL);
 	}
@@ -46,18 +44,18 @@ public class SignupTest {
 	@DataProvider(name = "signup test data provider")
 	public Object[] dpMethod() throws Exception
 	{
-		Workbook workbook = new Workbook(path.RegisterUserCSV);
-		workbook.save(path.RegisterUserJSON);
-        Class<SignupData> targetClass = SignupData.class;
-        JsonReader<SignupData> jsonReader = new JsonReader<>(targetClass);
-        List<SignupData> dataList = jsonReader.readJsonFile(path.RegisterUserJSON);
+		Workbook workbook = new Workbook(path.LOGINUSERCSV);
+		workbook.save(path.LOGINUSERJSON);
+        Class<LoginData> targetClass = LoginData.class;
+        JsonReader<LoginData> jsonReader = new JsonReader<>(targetClass);
+        List<LoginData> dataList = jsonReader.readJsonFile(path.LOGINUSERJSON);
         dataList.toArray();
         
         return dataList.toArray();		
 	}
 	
-	@Test(dataProvider = "signup test data provider" , dataProviderClass = SignupTest.class)
-	public void LoginTest( SignupData data) throws Exception
+	@Test(dataProvider = "signup test data provider" , dataProviderClass = LoginTest.class)
+	public void Login( LoginData data) throws Exception
 	{
 		//reporting : update TC id
 		Allure.getLifecycle().updateTestCase( tc -> tc.setName("TC ID : " + data.getTcId() ) ); 
@@ -65,10 +63,10 @@ public class SignupTest {
 		Allure.parameter("Data :" , data.toString());					
 		
 		// call of the procedures method
-		SignupProcedure.SigUp(driver, data); 
+		LoginProcedure.Login(driver, data); 
 		
 		//validate the actual results with expected results 
-		AssertionFactory.checkExpectedResult(driver, data.getexpectedResults() );
+		AssertionFactory.checkExpectedResult(driver, data.getName());
 		
 	}
 	

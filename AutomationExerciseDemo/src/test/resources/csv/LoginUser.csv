@@ -1,0 +1,2 @@
+﻿TcId,summary,name,email,password,expectedResults,linkedTcId
+T002,register new user,AhmedAli,esddrsddttg@test.com,Dummy123,AhmedAli,

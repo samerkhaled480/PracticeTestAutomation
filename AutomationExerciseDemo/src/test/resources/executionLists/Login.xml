@@ -7,9 +7,9 @@
 		<listener class-name="listeners.Listeners" />
 	</listeners>
 	
-	<test name="Test2">
+	<test thread-count="5" name="Test">
 		<classes>
 			<class name="tests.LoginTest" />
 		</classes>
-	</test>
-</suite>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
