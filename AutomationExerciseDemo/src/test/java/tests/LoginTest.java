@@ -37,7 +37,7 @@ public class LoginTest {
 	@BeforeMethod( description= "initialize the browser")
 	public void before( Object[] testData ) throws Exception
 	{			
-		driver = WebdriverFactory.initiateWebDriver();
+		driver = WebdriverFactory.initiateWebDriver("chrome");
 		driver.get(properties.WEBSITEURL);
 	}
 	

@@ -39,7 +39,7 @@ public class SignupTest {
 	{	
 		SignupData data = (SignupData) testData[0];
 		
-		driver = WebdriverFactory.initiateWebDriver();
+		driver = WebdriverFactory.initiateWebDriver("chrome");
 		driver.get(properties.WEBSITEURL);
 	}
 	
